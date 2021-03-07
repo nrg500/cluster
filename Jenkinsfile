@@ -1,7 +1,7 @@
 node {
     deleteDir()
     stage("Deploy") {
-        sh "kubectl apply -k ."
+        sh "kubectl apply -k cluster"
     }
     stage("Cleanup namespaces") {
         def namespacesInCluster = sh(returnStdout: true, script: 'kubectl get ns | sed "s/|/ /" | awk "{print $1}"')
