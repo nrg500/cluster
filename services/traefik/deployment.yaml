@@ -1,0 +1,64 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: default
+  name: traefik
+  labels:
+    app: traefik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik
+  template:
+    metadata:
+      labels:
+        app: traefik
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      volumes:
+      - name: transip-key
+        secret:
+          secretName: transip-key
+      - name: certificates
+        hostPath:
+          path: "/home/berwout/certificates"
+      containers:
+        - name: traefik
+          image: traefik:v2.4
+          volumeMounts:
+          - name: transip-key
+            mountPath: "/etc/transip-key"
+            readOnly: true
+          - name: certificates
+            mountPath: "/etc/certificates"
+          env:
+          - name: TRANSIP_ACCOUNT_NAME
+            value: berwout
+          - name: TRANSIP_PRIVATE_KEY_PATH
+            value: /etc/transip-key/transip-key
+          args:
+            - --api.insecure
+            - --accesslog
+            - --entrypoints.web.Address=:80
+            - --entrypoints.websecure.Address=:443
+            - --entrypoints.websecure.http.tls.certResolver=myresolver
+            - --entrypoints.websecure.http.tls.domains[0].main=berwout.nl
+            - --entrypoints.websecure.http.tls.domains[0].sans=*.berwout.nl
+            - --providers.kubernetescrd
+            - --certificatesresolvers.myresolver.acme.email=bdvr@live.nl
+            - --log.level=DEBUG
+            - --certificatesresolvers.myresolver.acme.storage=/etc/certificates/acme.json
+            - --certificatesresolvers.myresolver.acme.dnschallenge=true
+            - --certificatesresolvers.myresolver.acme.dnschallenge.provider=transip
+            - --certificatesresolvers.myresolver.acme.dnschallenge.delaybeforecheck=0
+            - --certificatesresolvers.myresolver.acme.dnschallenge.resolvers=ns0.transip.net,ns1.transip.nl,ns2.transip.eu,1.1.1.1,8.8.8.8
+            #- --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+            - --entrypoints.web.http.redirections.entryPoint.to=websecure
+          ports:
+            - name: web
+              containerPort: 80
+            - name: websecure
+              containerPort: 443
+            - name: admin
+              containerPort: 8080

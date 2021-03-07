@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- cluster-role-binding.yaml
+- cluster-role.yaml
+- crds.yaml
+- deployment.yaml
+- middleware.yaml
+#- secret.yaml <- Add secret transip key / other traefik integration here
+- service-account.yaml
+- service.yaml

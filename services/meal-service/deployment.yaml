@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: meal-service-deployment
+    labels:
+        app: meal-service
+spec:
+    selector:
+        matchLabels:
+            app: meal-service
+    template:
+        metadata:
+            labels:
+                app: meal-service
+        spec:
+            containers:
+            - name: meal-service
+              image: berwoutv/meal-service:latest
+              imagePullPolicy: Always
+              env:
+              - name: MONGO_URI
+                value: "mongodb://mongo.svc.svc.cluster.local:27017/meals"
+              ports:
+              - containerPort: 80
+              readinessProbe:
+                httpGet:
+                    path: /api/meals/health
+                    port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 5

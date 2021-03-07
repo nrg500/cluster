@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mongo-deployment
+    labels:
+        app: mongo
+spec:
+    selector:
+        matchLabels:
+            app: mongo
+    template:
+        metadata:
+            labels:
+                app: mongo
+        spec:
+            volumes:
+            - name: mongo
+              hostPath:
+                path: "/home/berwout/data/mongo"
+            containers:
+            - name: mongo
+              image: mongo
+              volumeMounts:
+              - name: mongo
+                mountPath: "/data/db"
+              ports:
+              - containerPort: 27017
+              # env:
+              #   - name: MONGO_INITDB_ROOT_USERNAME_FILE
+              #     value: /etc/mongo-login/admin/MONGO_USERNAME
+              #   - name: MONGO_INITDB_ROOT_PASSWORD_FILE
+              #     value: /etc/mongo-login/admin/MONGO_PASSWORD
+              # volumeMounts:
+              #   - name: mongo-login
+              #     mountPath: /etc/mongo-login
+              #     readOnly: true
+              readinessProbe:
+                httpGet:
+                    path: /
+                    port: 27017
+                initialDelaySeconds: 5
+                periodSeconds: 5
+            # volumes:
+            # - name: mongo-login
+            #   secret:
+            #     secretName: mongo-login
+            #     items:
+            #     - key: MONGO_USERNAME
+            #       path: admin/MONGO_USERNAME
+            #       mode: 0444
+            #     - key: MONGO_PASSWORD
+            #       path: admin/MONGO_PASSWORD
+            #       mode: 0444

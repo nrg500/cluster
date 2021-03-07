@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: ingredient-service
+    labels:
+        app: ingredient-service
+spec:
+    selector:
+        matchLabels:
+            app: ingredient-service
+    template:
+        metadata:
+            labels:
+                app: ingredient-service
+        spec:
+            containers:
+            - name: ingredient-service
+              imagePullPolicy: Always
+              image: berwoutv/ingredient-service:latest
+              env:
+              - name: MONGO_URI
+                value: "mongodb://mongo.svc.svc.cluster.local:27017/ingredients"
+              ports:
+              - containerPort: 80
+              readinessProbe:
+                httpGet:
+                    path: /api/ingredients/health
+                    port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 5

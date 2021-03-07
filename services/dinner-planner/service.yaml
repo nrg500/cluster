@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dinner-planner
+  labels:
+    app: dinner-planner
+spec:
+  type: ClusterIP
+  selector:
+    app: dinner-planner
+  ports:
+  - port: 8080
+    targetPort: 80

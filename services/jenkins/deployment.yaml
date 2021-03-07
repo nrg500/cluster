@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  selector:
+    matchLabels:
+        app: jenkins
+  template:
+    metadata:
+        labels:
+            app: jenkins
+    spec:
+      containers:
+        - name: jenkins
+          image: berwoutv/jenkins:latest
+          ports:
+          - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /login
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+          - mountPath: "/var/jenkins_home"
+            name: jenkins
+      volumes:
+        - name: jenkins
+          hostPath:
+            path: "/home/berwout/data/jenkins"
