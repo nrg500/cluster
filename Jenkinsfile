@@ -7,9 +7,16 @@ node {
         sh "kubectl apply -k ."
     }
     stage("Cleanup namespaces") {
-        def namespacesInCluster = sh(returnStdout: true, script: 'kubectl get ns | sed "s/|/ /" | awk "{print $1}"')
-        def namespacesInRepo = sh(returnStdout: true, script: 'dir namespaces')
-        print namespacesInCluster
-        print namespacesInRepo
+        def sysNamespaces = ["kube-system", "kube-public", "kube-node-lease", "default", "metallb-system"];
+        def namespacesInCluster = sh(returnStdout: true, script: '''echo $(kubectl get --no-headers ns | sed 's/|/ /' | awk '{print $1}')''').split("\\s+");
+        def namespacesInRepo = sh(returnStdout: true, script: 'dir namespaces').split("\\s+");
+        for (namespaceInCluster in namespacesInCluster) {
+            if(namespacesInRepo.contains(namespaceInCluster)) {
+                print "${namespaceInCluster} is present in repo do nothing."
+            } else if(!sysNamespaces.contains(namespaceInCluster)) {
+                print "deleting: ${namespaceInCluster}"
+                sh "kubectl delete namespace ${namespaceInCluster}"
+            }
+        }
     }
 }
