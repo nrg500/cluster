@@ -8,3 +8,4 @@ bases:
 - namespaces/master
 - namespaces/test
 - namespaces/test
+- namespaces/test
