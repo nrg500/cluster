@@ -4,9 +4,9 @@ namespace: main
 resources:
 - namespace.yaml
 - blog-ingress.yaml
-- dinner-ingress.yaml
-- meal-ingress.yaml
-- ingredients-ingress.yaml
+- dinner-planner-ingress.yaml
+- meal-service-ingress.yaml
+- ingredient-service-ingress.yaml
 bases:
 - ../../services/blog
 - ../../services/dinner-planner
