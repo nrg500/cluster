@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: blog-tls
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`berwout.nl`) || Host(`www.berwout.nl`)
+    kind: Rule
+    services:
+    - name: blog
+      port: 8080

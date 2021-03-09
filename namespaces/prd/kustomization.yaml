@@ -3,10 +3,13 @@ kind: Kustomization
 namespace: prd
 resources:
 - namespace.yaml
-- ingress.yaml
+- blog-ingress.yaml
+- dinner-ingress.yaml
+- meal-ingress.yaml
+- ingredients-ingress.yaml
 bases:
 - ../../services/blog
 - ../../services/dinner-planner
 - ../../services/ingredient-service
 - ../../services/meal-service
-- ../../jobs/mongo-setup
+- ../../services/mongo-setup
