@@ -6,3 +6,4 @@ bases:
 - namespaces/ingress
 - namespaces/main
 - namespaces/master
+- namespaces/test
