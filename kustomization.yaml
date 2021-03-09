@@ -4,4 +4,4 @@ resources:
 bases:
 - namespaces/svc
 - namespaces/ingress
-- namespaces/prd
+- namespaces/main
