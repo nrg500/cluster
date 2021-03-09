@@ -5,6 +5,7 @@ resources:
 - namespace.yaml
 - meal-service-ingress.yaml
 - ingredient-service-ingress.yaml
+- dinner-planner-ingress.yaml
 bases:
 - ../../services/meal-service
 - ../../services/ingredient-service

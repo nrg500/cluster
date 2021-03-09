@@ -7,3 +7,4 @@ bases:
 - namespaces/main
 - namespaces/master
 - namespaces/test
+- namespaces/test
