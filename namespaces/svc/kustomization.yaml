@@ -7,3 +7,4 @@ resources:
 bases:
 - ../../services/mongo
 - ../../services/jenkins
+- ../../services/selenium
