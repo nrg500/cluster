@@ -15,14 +15,14 @@ spec:
         spec:
             volumes:
             - name: dshm
-                emptyDir:
+              emptyDir:
                 medium: Memory
             containers:
             - name: selenium
               image: selenium/standalone-chrome:4.0
               volumeMounts:
-                - mountPath: /dev/shm
-                  name: dshm
+              - mountPath: /dev/shm
+                name: dshm
               ports:
               - containerPort: 4444
               readinessProbe:
