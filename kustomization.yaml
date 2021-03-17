@@ -5,5 +5,3 @@ bases:
 - namespaces/svc
 - namespaces/ingress
 - namespaces/main
-- namespaces/master
-- namespaces/test
