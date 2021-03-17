@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingredient-service-tls
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`testing-dinner.berwout.nl`) && Path(`/api/ingredients`)
+    kind: Rule
+    services:
+    - name: ingredient-service
+      port: 8080
