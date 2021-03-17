@@ -3,10 +3,7 @@ node {
     stage("Checkout") {
         checkout scm
     }
-    stage("Deploy") {
-        sh "kubectl apply -k ."
-    }
-    stage("Cleanup namespaces") {
+      stage("Cleanup namespaces") {
         def sysNamespaces = ["kube-system", "kube-public", "kube-node-lease", "default", "metallb-system"];
         def namespacesInCluster = sh(returnStdout: true, script: '''echo $(kubectl get --no-headers ns | sed 's/|/ /' | awk '{print $1}')''').split("\\s+");
         def namespacesInRepo = sh(returnStdout: true, script: 'dir namespaces').split("\\s+");
@@ -18,5 +15,8 @@ node {
                 sh "kubectl delete namespace ${namespaceInCluster}"
             }
         }
+    }
+    stage("Deploy") {
+        sh "kubectl apply -k ."
     }
 }
