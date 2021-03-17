@@ -16,6 +16,7 @@ spec:
       containers:
         - name: jenkins
           image: berwoutv/jenkins:latest
+          imagePullPolicy: Always
           ports:
           - containerPort: 8080
           readinessProbe:
