@@ -32,7 +32,7 @@ spec:
       volumes:
         - name: jenkins
           hostPath:
-            path: "/home/berwout/data/jenkins"
+            path: /home/berwout/data/jenkins
         - name: docker-socket
           hostPath:
             path: /var/run/docker.sock
