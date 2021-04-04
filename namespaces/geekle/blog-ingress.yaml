@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`geekle-berwout.nl`) || Host(`www.geekle-berwout.nl`)
+  - match: Host(`geekle-berwout.nl`) || Host(`geekle.berwout.nl`)
     kind: Rule
     services:
     - name: blog
