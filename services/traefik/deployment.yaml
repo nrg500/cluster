@@ -25,7 +25,7 @@ spec:
           path: "/home/berwout/certificates"
       containers:
         - name: traefik
-          image: traefik:v2.4
+          image: traefik:v2.5
           volumeMounts:
           - name: transip-key
             mountPath: "/etc/transip-key"
