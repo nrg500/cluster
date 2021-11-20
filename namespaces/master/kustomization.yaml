@@ -3,13 +3,4 @@ kind: Kustomization
 namespace: master
 resources:
 - namespace.yaml
-- meal-service-ingress.yaml
-- ingredient-service-ingress.yaml
-- dinner-planner-ingress.yaml
-- blog-ingress.yaml
-bases:
-- ../../services/meal-service
-- ../../services/ingredient-service
-- ../../services/dinner-planner
-- ../../services/mongo-setup
-- ../../services/blog
+bases: []
