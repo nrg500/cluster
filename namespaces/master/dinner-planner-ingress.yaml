@@ -9,9 +9,6 @@ spec:
   routes:
   - match: Host(`master-dinner.berwout.nl`)
     kind: Rule
-    middlewares:
-    - name: redirect-scheme
-      namespace: default
     services:
     - name: dinner-planner
       port: 8080
