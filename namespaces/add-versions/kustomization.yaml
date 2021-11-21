@@ -3,15 +3,15 @@ kind: Kustomization
 namespace: add-versions
 images:
 - name: berwoutv/blog
-  newTag: add-versions-6
+  newTag: add-versions-9
 - name: berwoutv/dinner-planner
-  newTag: add-versions-6
+  newTag: add-versions-9
 - name: berwoutv/ingredient-service
-  newTag: add-versions-6
+  newTag: add-versions-9
 - name: berwoutv/meal-service
-  newTag: add-versions-6
+  newTag: add-versions-9
 - name: berwoutv/mongo-setup
-  newTag: add-versions-6
+  newTag: add-versions-9
 resources:
 - namespace.yaml
 - meal-service-ingress.yaml
