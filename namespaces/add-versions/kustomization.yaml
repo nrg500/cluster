@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: add-versions
+images:
+- name: berwoutv/blog
+  newTag: add-versions-6
+- name: berwoutv/dinner-planner
+  newTag: add-versions-6
+- name: berwoutv/ingredient-service
+  newTag: add-versions-6
+- name: berwoutv/meal-service
+  newTag: add-versions-6
+- name: berwoutv/mongo-setup
+  newTag: add-versions-6
+resources:
+- namespace.yaml
+- meal-service-ingress.yaml
+- ingredient-service-ingress.yaml
+- dinner-planner-ingress.yaml
+- blog-ingress.yaml
+bases:
+- ../../services/meal-service
+- ../../services/ingredient-service
+- ../../services/dinner-planner
+- ../../services/mongo-setup
+- ../../services/blog
