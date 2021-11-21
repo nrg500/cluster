@@ -8,12 +8,16 @@ images:
   newTag: master-68
 - name: berwoutv/blog
   newTag: master-68
+- name: berwoutv/portfolio
+  newTag: master-68
 resources:
 - namespace.yaml
 - blog-ingress.yaml
 - meal-service-ingress.yaml
 - ingredient-service-ingress.yaml
+- portfolio-ingress.yaml
 bases:
 - ../../services/blog
 - ../../services/ingredient-service
 - ../../services/meal-service
+- ../../services/portfolio
