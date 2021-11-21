@@ -45,7 +45,7 @@ spec:
             - --entrypoints.websecure.http.tls.certResolver=myresolver
             - --entrypoints.websecure.http.tls.domains[0].main=berwout.nl
             - --entrypoints.websecure.http.tls.domains[0].sans=*.berwout.nl
-            - --entrypoints.websecure.http.tls.domains[1].sans=lizagenke.nl
+            - --entrypoints.websecure.http.tls.domains[1].main=lizagenke.nl
             - --entrypoints.websecure.http.tls.domains[1].sans=*.lizagenke.nl
             - --providers.kubernetescrd
             - --certificatesresolvers.myresolver.acme.email=bdvr@live.nl
