@@ -10,5 +10,5 @@ spec:
   - match: Host(`portfolio.berwout.nl`)
     kind: Rule
     services:
-    - name: blog
+    - name: portfolio
       port: 8080
