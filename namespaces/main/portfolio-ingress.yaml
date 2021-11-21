@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   entryPoints:
-    - websecureliza
+    - websecure
   routes:
   - match: Host(`lizagenke.nl`) || Host(`www.lizagenke.nl`)
     kind: Rule
