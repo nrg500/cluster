@@ -1,6 +1,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: main
+images:
+- name: berwoutv/blog
+  newTag: latest
+- name: berwoutv/dinner-planner
+  newTag: latest
+- name: berwoutv/ingredient-service
+  newTag: latest
+- name: berwoutv/meal-service
+  newTag: latest
+- name: berwoutv/mongo-setup
+  newTag: latest
 resources:
 - namespace.yaml
 - blog-ingress.yaml
