@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`portfolio.berwout.nl`)
+  - match: Host(`lizagenke.nl`) || Host(`www.lizagenke.nl`)
     kind: Rule
     services:
     - name: portfolio
