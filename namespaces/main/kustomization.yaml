@@ -3,13 +3,13 @@ kind: Kustomization
 namespace: main
 images:
 - name: berwoutv/ingredient-service
-  newTag: master-31
+  newTag: master-32
 - name: berwoutv/meal-service
-  newTag: master-31
+  newTag: master-32
 - name: berwoutv/portfolio
-  newTag: master-31
+  newTag: master-32
 - name: berwoutv/blog
-  newTag: master-31
+  newTag: master-32
 resources:
 - namespace.yaml
 - blog-ingress.yaml
