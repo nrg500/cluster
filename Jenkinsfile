@@ -23,7 +23,7 @@ node {
             variable: 'ga_id')
         ]) {
             encoded = sh(returnStdout: true, script: "echo ${ga_id} | base64")
-            sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${encoded}\\"|g" services/blog/secret.yaml"""
+            sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${encoded.trim()}\\"|g" services/blog/secret.yaml"""
         }
     }
     stage("Deploy") {
