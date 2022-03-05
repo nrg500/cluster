@@ -23,7 +23,7 @@ node {
             variable: 'ga_id')
         ]) {
             print "${ga_id}"
-        sh """sed -i "s|google-analytics-id: \"\"|google-analytics-id: \"${ga_id}\"|g" services/blog/secret.yaml"""
+        sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${ga_id}\\"|g" services/blog/secret.yaml"""
         }
     }
     stage("Deploy") {
