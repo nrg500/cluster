@@ -20,9 +20,10 @@ node {
         withCredentials([
         string(
             credentialsId: 'google-analytics-id',
-            variable: 'google-analytics-id')
+            variable: 'ga_id')
         ]) {
-        sh """sed -i "s|google-analytics-id: \"\"|google-analytics-id: \"${google-analytics-id}\"|g" services/blog/secret.yaml"""
+            print "${ga_id}"
+        sh """sed -i "s|google-analytics-id: \"\"|google-analytics-id: \"${ga_id}\"|g" services/blog/secret.yaml"""
         }
     }
     stage("Deploy") {
