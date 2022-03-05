@@ -16,16 +16,16 @@ node {
             }
         }
     }
-    stage("Replace secrets") {
-        withCredentials([
-        string(
-            credentialsId: 'google-analytics-id',
-            variable: 'ga_id')
-        ]) {
-            encoded = sh(returnStdout: true, script: "echo ${ga_id} | base64")
-            sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${encoded.trim()}\\"|g" services/blog/secret.yaml"""
-        }
-    }
+    // stage("Replace secrets") {
+    //     withCredentials([
+    //     string(
+    //         credentialsId: 'google-analytics-id',
+    //         variable: 'ga_id')
+    //     ]) {
+    //         encoded = sh(returnStdout: true, script: "echo ${ga_id} | base64")
+    //         sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${encoded.trim()}\\"|g" services/blog/secret.yaml"""
+    //     }
+    // }
     stage("Deploy") {
         sh "kubectl apply -k ."
     }

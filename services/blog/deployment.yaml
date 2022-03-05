@@ -25,10 +25,4 @@ spec:
                     port: 80
                 initialDelaySeconds: 5
                 periodSeconds: 5
-              env:
-              - name: HUGO_PARAMS_GoogleAnalyticsID
-                valueFrom:
-                  secretKeyRef:
-                    name: hugo-secrets
-                    key: google-analytics-id
             
