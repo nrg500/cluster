@@ -22,8 +22,8 @@ node {
             credentialsId: 'google-analytics-id',
             variable: 'ga_id')
         ]) {
-            print "${ga_id}"
-        sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${ga_id}\\"|g" services/blog/secret.yaml"""
+            encoded = sh(returnStdout: true, script: "echo ${ga_id} | base64")
+            sh """sed -i "s|google-analytics-id: \\"\\"|google-analytics-id: \\"${encoded}\\"|g" services/blog/secret.yaml"""
         }
     }
     stage("Deploy") {
