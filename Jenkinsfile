@@ -22,7 +22,7 @@ node {
             credentialsId: 'google-analytics-id',
             variable: 'google-analytics-id')
         ]) {
-        sh """sed -i 's|google-analytics-id: ""|google-analytics-id: "${google-analytics-id}"|g' services/blog/secret.yaml"""
+        sh """sed -i "s|google-analytics-id: \"\"|google-analytics-id: \"${google-analytics-id}\"|g" services/blog/secret.yaml"""
         }
     }
     stage("Deploy") {
