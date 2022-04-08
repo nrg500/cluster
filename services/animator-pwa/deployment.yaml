@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: animator-pwa
+    labels:
+        app: animator-pwa
+spec:
+    selector:
+        matchLabels:
+            app: animator-pwa
+    template:
+        metadata:
+            labels:
+                app: animator-pwa
+        spec:
+            containers:
+                - name: animator-pwa
+                  image: berwoutv/animator-pwa
+                  imagePullPolicy: Always
+                  ports:
+                      - containerPort: 80
+                  readinessProbe:
+                      httpGet:
+                          path: /
+                          port: 80
+                      initialDelaySeconds: 5
+                      periodSeconds: 5

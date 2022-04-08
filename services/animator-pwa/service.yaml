@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: animator-pwa
+  labels:
+    app: animator-pwa
+spec:
+  type: ClusterIP
+  selector:
+    app: animator-pwa
+  ports:
+    - port: 8080
+      targetPort: 80
