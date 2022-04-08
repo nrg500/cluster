@@ -2,26 +2,26 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: main
 images:
-  - name: berwoutv/ingredient-service
-    newTag: master-39
-  - name: berwoutv/meal-service
-    newTag: master-39
-  - name: berwoutv/portfolio
-    newTag: master-39
-  - name: berwoutv/blog
-    newTag: master-39
-  - name: berwoutv/animator-pwa
-    newTag: master-40
+- name: berwoutv/ingredient-service
+  newTag: master-41
+- name: berwoutv/meal-service
+  newTag: master-41
+- name: berwoutv/portfolio
+  newTag: master-41
+- name: berwoutv/animator-pwa
+  newTag: master-41
+- name: berwoutv/blog
+  newTag: master-41
 resources:
-  - namespace.yaml
-  - blog-ingress.yaml
-  - meal-service-ingress.yaml
-  - ingredient-service-ingress.yaml
-  - portfolio-ingress.yaml
-  - animator-pwa-ingress.yaml
+- namespace.yaml
+- blog-ingress.yaml
+- meal-service-ingress.yaml
+- ingredient-service-ingress.yaml
+- portfolio-ingress.yaml
+- animator-pwa-ingress.yaml
 bases:
-  - ../../services/blog
-  - ../../services/ingredient-service
-  - ../../services/meal-service
-  - ../../services/portfolio
-  - ../../services/animator-pwa
+- ../../services/blog
+- ../../services/ingredient-service
+- ../../services/meal-service
+- ../../services/portfolio
+- ../../services/animator-pwa
