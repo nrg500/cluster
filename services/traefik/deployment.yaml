@@ -41,6 +41,7 @@ spec:
             - --api.insecure
             - --accesslog
             - --experimental.http3=true
+            - --entrypoint.websecure.http3
             - --entrypoints.web.Address=:80
             - --entrypoints.websecure.Address=:443
             - --entrypoints.websecure.http.tls.certResolver=myresolver
