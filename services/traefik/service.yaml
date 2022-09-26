@@ -14,5 +14,8 @@ spec:
     - protocol: TCP
       name: websecure
       port: 443
+    - protocol: UDP
+      name: websecure-udp
+      port: 443
   selector:
     app: traefik
