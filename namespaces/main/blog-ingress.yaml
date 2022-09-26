@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   entryPoints:
-    - http3
+    - websecure
   routes:
     - match: Host(`berwout.nl`) || Host(`www.berwout.nl`)
       kind: Rule
