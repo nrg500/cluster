@@ -40,10 +40,10 @@ spec:
           args:
             - --api.insecure
             - --accesslog
-            - --experimental.http3=true
             - --entrypoints.web.Address=:80
             - --entrypoints.websecure.Address=:443
-            - --entrypoints.websecure.http3.advertisedport=443
+            - --entrypoints.websecure.http3
+            - --experimental.http3=true
             - --entrypoints.websecure.http.tls.certResolver=myresolver
             - --entrypoints.websecure.http.tls.domains[0].main=berwout.nl
             - --entrypoints.websecure.http.tls.domains[0].sans=*.berwout.nl
