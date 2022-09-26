@@ -17,36 +17,39 @@ spec:
     spec:
       serviceAccountName: traefik-ingress-controller
       volumes:
-      - name: transip-key
-        secret:
-          secretName: transip-key
-      - name: certificates
-        hostPath:
-          path: "/home/berwout/certificates"
+        - name: transip-key
+          secret:
+            secretName: transip-key
+        - name: certificates
+          hostPath:
+            path: "/home/berwout/certificates"
       containers:
         - name: traefik
           image: traefik:v2.5
           volumeMounts:
-          - name: transip-key
-            mountPath: "/etc/transip-key"
-            readOnly: true
-          - name: certificates
-            mountPath: "/etc/certificates"
+            - name: transip-key
+              mountPath: "/etc/transip-key"
+              readOnly: true
+            - name: certificates
+              mountPath: "/etc/certificates"
           env:
-          - name: TRANSIP_ACCOUNT_NAME
-            value: berwout
-          - name: TRANSIP_PRIVATE_KEY_PATH
-            value: /etc/transip-key/transip-key
+            - name: TRANSIP_ACCOUNT_NAME
+              value: berwout
+            - name: TRANSIP_PRIVATE_KEY_PATH
+              value: /etc/transip-key/transip-key
           args:
             - --api.insecure
             - --accesslog
             - --entrypoints.web.Address=:80
             - --entrypoints.websecure.Address=:443
             - --entrypoints.websecure.http.tls.certResolver=myresolver
-            - --entrypoints.websecure.http.tls.domains[0].main=berwout.nl
-            - --entrypoints.websecure.http.tls.domains[0].sans=*.berwout.nl
             - --entrypoints.websecure.http.tls.domains[1].main=lizagenke.nl
             - --entrypoints.websecure.http.tls.domains[1].sans=*.lizagenke.nl
+            - --experimental.http3=true
+            - --entrypoints.http3.http3.advertisedPort=443
+            - --entrypoints.http3.http.tls.certResolver=myresolver
+            - --entrypoints.http3.http.tls.domains[0].main=berwout.nl
+            - --entrypoints.http3.http.tls.domains[0].sans=*.berwout.nl
             - --providers.kubernetescrd
             - --certificatesresolvers.myresolver.acme.email=bdvr@live.nl
             - --log.level=DEBUG
