@@ -46,10 +46,10 @@ spec:
             - --entrypoints.websecure.http.tls.domains[1].main=lizagenke.nl
             - --entrypoints.websecure.http.tls.domains[1].sans=*.lizagenke.nl
             - --experimental.http3=true
-            - --entrypoints.http3.http3.advertisedPort=443
-            - --entrypoints.http3.http.tls.certResolver=myresolver
-            - --entrypoints.http3.http.tls.domains[0].main=berwout.nl
-            - --entrypoints.http3.http.tls.domains[0].sans=*.berwout.nl
+            - --entrypoints.usehttp3.http3.advertisedPort=443
+            - --entrypoints.usehttp3.http.tls.certResolver=myresolver
+            - --entrypoints.usehttp3.http.tls.domains[0].main=berwout.nl
+            - --entrypoints.usehttp3.http.tls.domains[0].sans=*.berwout.nl
             - --providers.kubernetescrd
             - --certificatesresolvers.myresolver.acme.email=bdvr@live.nl
             - --log.level=DEBUG
