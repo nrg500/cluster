@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http3-test-frontend
+  labels:
+    app: http3-test-frontend
+spec:
+  selector:
+    matchLabels:
+      app: http3-test-frontend
+  template:
+    metadata:
+      labels:
+        app: http3-test-frontend
+    spec:
+      containers:
+        - name: http3-test-frontend
+          image: berwoutv/http3-test-frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
