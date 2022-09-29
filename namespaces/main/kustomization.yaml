@@ -13,7 +13,7 @@ images:
   - name: berwoutv/blog
     newTag: master-49
   - name: berwoutv/http3-test
-    newTag: 1
+    newTag: "1"
 resources:
   - namespace.yaml
   - blog-ingress.yaml
