@@ -2,26 +2,30 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: main
 images:
-- name: berwoutv/ingredient-service
-  newTag: master-49
-- name: berwoutv/meal-service
-  newTag: master-49
-- name: berwoutv/portfolio
-  newTag: master-49
-- name: berwoutv/animator-pwa
-  newTag: master-49
-- name: berwoutv/blog
-  newTag: master-49
+  - name: berwoutv/ingredient-service
+    newTag: master-49
+  - name: berwoutv/meal-service
+    newTag: master-49
+  - name: berwoutv/portfolio
+    newTag: master-49
+  - name: berwoutv/animator-pwa
+    newTag: master-49
+  - name: berwoutv/blog
+    newTag: master-49
+  - name: berwoutv/http3-test
+    newTag: 1
 resources:
-- namespace.yaml
-- blog-ingress.yaml
-- meal-service-ingress.yaml
-- ingredient-service-ingress.yaml
-- portfolio-ingress.yaml
-- animator-pwa-ingress.yaml
+  - namespace.yaml
+  - blog-ingress.yaml
+  - meal-service-ingress.yaml
+  - ingredient-service-ingress.yaml
+  - portfolio-ingress.yaml
+  - animator-pwa-ingress.yaml
+  - http3-test-ingress.yaml
 bases:
-- ../../services/blog
-- ../../services/ingredient-service
-- ../../services/meal-service
-- ../../services/portfolio
-- ../../services/animator-pwa
+  - ../../services/blog
+  - ../../services/ingredient-service
+  - ../../services/meal-service
+  - ../../services/portfolio
+  - ../../services/animator-pwa
+  - ../../services/http3-test

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http3-test
+  labels:
+    app: http3-test
+spec:
+  selector:
+    matchLabels:
+      app: http3-test
+  template:
+    metadata:
+      labels:
+        app: http3-test
+    spec:
+      containers:
+        - name: http3-test
+          image: berwoutv/http3-test
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
