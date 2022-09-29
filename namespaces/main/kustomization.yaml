@@ -14,6 +14,8 @@ images:
     newTag: master-49
   - name: berwoutv/http3-test
     newTag: "1"
+  - name: berwoutv/http3-test-frontend
+    newTag: "1"
 resources:
   - namespace.yaml
   - blog-ingress.yaml
