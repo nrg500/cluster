@@ -1,14 +1,14 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: http3-frontend-tls
+  name: o-backend-tls
   namespace: default
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`http3.berwout.nl`)
+    - match: Host(`orchestra.berwout.nl`) && Path(`/api`)
       kind: Rule
       services:
-        - name: http3-test-frontend
+        - name: o-backend
           port: 8080

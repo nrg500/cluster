@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: http3-test
+  name: o-backend
   labels:
-    app: http3-test
+    app: o-backend
 spec:
   selector:
     matchLabels:
-      app: http3-test
+      app: o-backend
   template:
     metadata:
       labels:
-        app: http3-test
+        app: o-backend
     spec:
       containers:
-        - name: http3-test
-          image: berwoutv/http3-test
+        - name: o-backend
+          image: berwoutv/o-backend
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

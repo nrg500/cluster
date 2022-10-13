@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: http3-test-frontend
+  name: o-backend
   labels:
-    app: http3-test-frontend
+    app: o-backend
 spec:
   type: ClusterIP
   selector:
-    app: http3-test-frontend
+    app: o-backend
   ports:
     - port: 8080
-      targetPort: 80
+      targetPort: 8080

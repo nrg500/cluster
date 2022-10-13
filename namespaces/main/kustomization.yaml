@@ -12,10 +12,10 @@ images:
     newTag: master-49
   - name: berwoutv/blog
     newTag: master-49
-  - name: berwoutv/http3-test
-    newTag: "1"
-  - name: berwoutv/http3-test-frontend
-    newTag: "1"
+  - name: berwoutv/o-frontend
+    newTag: "3.0"
+  - name: berwoutv/o-backend
+    newTag: "3.0"
 resources:
   - namespace.yaml
   - blog-ingress.yaml
@@ -23,13 +23,13 @@ resources:
   - ingredient-service-ingress.yaml
   - portfolio-ingress.yaml
   - animator-pwa-ingress.yaml
-  - http3-test-ingress.yaml
-  - http3-test-frontend-ingress.yaml
+  - o-frontend-ingress.yaml
+  - o-backend-frontend-ingress.yaml
 bases:
   - ../../services/blog
   - ../../services/ingredient-service
   - ../../services/meal-service
   - ../../services/portfolio
   - ../../services/animator-pwa
-  - ../../services/http3-test
-  - ../../services/http3-test-frontend
+  - ../../services/o-frontend
+  - ../../services/o-backend
