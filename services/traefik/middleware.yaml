@@ -6,3 +6,12 @@ spec:
   redirectScheme:
     scheme: https
     permanent: true
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: websocket-middleware
+spec:
+  headers:
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"
