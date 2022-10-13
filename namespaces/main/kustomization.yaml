@@ -24,7 +24,7 @@ resources:
   - portfolio-ingress.yaml
   - animator-pwa-ingress.yaml
   - o-frontend-ingress.yaml
-  - o-backend-frontend-ingress.yaml
+  - o-backend-ingress.yaml
 bases:
   - ../../services/blog
   - ../../services/ingredient-service
