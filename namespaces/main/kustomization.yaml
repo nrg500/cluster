@@ -25,6 +25,7 @@ resources:
   - animator-pwa-ingress.yaml
   - o-frontend-ingress.yaml
   - o-backend-ingress.yaml
+  - o-backend-ws-ingress.yaml
 bases:
   - ../../services/blog
   - ../../services/ingredient-service

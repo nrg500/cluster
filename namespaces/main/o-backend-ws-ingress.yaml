@@ -1,13 +1,13 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: o-backend-tls
+  name: o-backend-ws-tls
   namespace: default
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`orchestra.berwout.nl`) && Path(`/api`)
+    - match: Host(`orchestra-ws.berwout.nl`)
       kind: Rule
       services:
         - name: o-backend
