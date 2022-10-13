@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`orchestra.berwout.nl`) && Path(`/api`)
+    - match: Host(`orchestra.berwout.nl`)
       kind: Rule
       services:
         - name: o-backend

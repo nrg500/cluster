@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`orchestra.berwout.nl`)
+    - match: Host(`o-frontend.berwout.nl`)
       kind: Rule
       services:
         - name: o-frontend
