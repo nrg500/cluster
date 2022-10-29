@@ -9,7 +9,6 @@ spec:
   routes:
     - match: Host(`orchestra.berwout.nl`) && Path(`/api`)
       kind: Rule
-      priority: 10
       services:
         - name: o-backend
           port: 8080
