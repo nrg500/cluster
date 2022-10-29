@@ -9,6 +9,7 @@ spec:
   routes:
     - match: Host(`orchestra.berwout.nl`)
       kind: Rule
+      priority: 10
       services:
         - name: o-frontend
           port: 8080
