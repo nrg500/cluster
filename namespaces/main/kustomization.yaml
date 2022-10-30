@@ -15,7 +15,7 @@ images:
   - name: berwoutv/o-frontend
     newTag: "3.10"
   - name: berwoutv/o-backend
-    newTag: "3.11"
+    newTag: "3.12"
 resources:
   - namespace.yaml
   - blog-ingress.yaml
