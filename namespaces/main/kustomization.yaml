@@ -13,7 +13,7 @@ images:
   - name: berwoutv/blog
     newTag: master-57
   - name: berwoutv/o-frontend
-    newTag: "3.10"
+    newTag: "3.11"
   - name: berwoutv/o-backend
     newTag: "3.14"
 resources:
