@@ -3,15 +3,15 @@ kind: Kustomization
 namespace: main
 images:
 - name: berwoutv/ingredient-service
-  newTag: master-62
+  newTag: master-63
 - name: berwoutv/meal-service
-  newTag: master-62
+  newTag: master-63
 - name: berwoutv/portfolio
-  newTag: master-62
+  newTag: master-63
 - name: berwoutv/animator-pwa
-  newTag: master-62
+  newTag: master-63
 - name: berwoutv/blog
-  newTag: master-62
+  newTag: master-63
 - name: berwoutv/o-frontend
   newTag: '3.11'
 - name: berwoutv/o-backend
